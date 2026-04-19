@@ -9,14 +9,13 @@
     :root {
       --brand: #ad3004;
       --brand-deep: #7f1f00;
-      --brand-soft: #f6e3db;
       --card: #ffffff;
-      --text: #222;
+      --text: #2b2b2b;
       --muted: #666;
-      --border: #f0f0f0;
+      --border: #d9d9d9;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { 
+    html {
       -webkit-text-size-adjust: 100%;
       -webkit-tap-highlight-color: transparent;
       height: 100%;
@@ -24,380 +23,188 @@
     body {
       font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue",
       Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
-      background: radial-gradient(circle at 15% 20%, rgba(173,48,4,0.05), transparent 30%), radial-gradient(circle at 80% 0%, rgba(255,255,255,0.6), transparent 35%), #f7f8fb;
+      background: linear-gradient(180deg, rgba(173, 48, 4, 0.82), rgba(127, 31, 0, 0.85));
       color: var(--text);
-      padding: 12px;
+      padding: 14px 12px 20px;
       padding-left: max(12px, env(safe-area-inset-left));
       padding-right: max(12px, env(safe-area-inset-right));
-      padding-bottom: max(12px, env(safe-area-inset-bottom));
-      padding-top: max(12px, env(safe-area-inset-top));
+      padding-bottom: max(20px, env(safe-area-inset-bottom));
+      padding-top: max(16px, env(safe-area-inset-top));
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       min-height: 100vh;
       min-height: -webkit-fill-available;
     }
-    .page { 
+    .page {
       width: 100%;
-      margin: 0 auto 24px;
-      max-width: 960px;
+      margin: 0 auto;
+      max-width: 680px;
     }
-
-    .app-header {
-      background: linear-gradient(135deg, var(--brand), var(--brand-deep));
-      color: #fff;
-      border-radius: 16px;
-      padding: 18px;
-      box-shadow: 0 10px 30px rgba(173, 48, 4, 0.2);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      margin-bottom: 18px;
-      flex-wrap: wrap;
+    .page-shell {
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 14px;
+      padding: 8px 8px 10px;
+      box-shadow: 0 12px 26px rgba(0, 0, 0, 0.14);
     }
-    .header-main {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      min-width: 0;
-    }
-    .header-title {
-      font-size: 20px;
-      font-weight: 700;
-      line-height: 1.4;
-      word-break: break-word;
-    }
-    .header-meta {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      flex-wrap: wrap;
-      font-size: 13px;
-      opacity: 0.9;
-    }
-    .header-meta .dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.7);
-      display: inline-flex;
-    }
-    .header-status {
-      background: rgba(255,255,255,0.16);
-      padding: 6px 12px;
-      border-radius: 999px;
-      font-size: 12px;
-      border: 1px solid rgba(255,255,255,0.25);
-    }
-    .header-location {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .header-side {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      gap: 10px;
-      min-width: 0;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-    .header-stats {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-    .header-date {
-      font-size: 13px;
-      padding: 8px 12px;
-      background: rgba(255,255,255,0.14);
-      border-radius: 999px;
-      backdrop-filter: blur(4px);
-      white-space: nowrap;
-      border: 1px solid rgba(255,255,255,0.2);
-    }
-    .header-count {
-      font-size: 13px;
-      opacity: 0.9;
-      white-space: nowrap;
-    }
-    .header-stats .dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.6);
-      display: inline-flex;
-    }
-
-    .venue-info {
-      background: #fff;
-      border-radius: 12px;
-      padding: 12px 14px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.05);
-      margin-bottom: 14px;
-      border: 1px solid var(--border);
-      font-size: 13px;
-      color: #555;
-      line-height: 1.6;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px 16px;
-    }
-    .venue-info strong { color: var(--text); }
-    .venue-info a {
-      color: var(--brand);
-      text-decoration: none;
-      -webkit-tap-highlight-color: rgba(173, 48, 4, 0.12);
-    }
-
-    .schedule-card {
-      background: var(--card);
-      border-radius: 10px;
-      padding: 14px 16px;
-      margin-bottom: 12px;
-      border: 1px solid var(--border);
-      -webkit-tap-highlight-color: transparent;
-      width: 100%;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.04);
-    }
-    .schedule-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      margin-bottom: 10px;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-    .schedule-title { 
-      font-size: 15px; 
-      font-weight: 600;
-      line-height: 1.5;
-      flex: 1;
-      min-width: 0;
-      word-break: break-word;
-    }
-    .schedule-header > div:last-child {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      flex-shrink: 0;
-    }
-    .badge {
-      padding: 4px 10px;
-      border-radius: 999px;
-      font-size: 11px;
-      white-space: nowrap;
-      line-height: 1.3;
-      min-height: 22px;
-      display: inline-flex;
-      align-items: center;
-    }
-    .badge-status { background: rgba(173,48,4,0.1); color: var(--brand); }
-    .badge-reg { background: #f5f5f5; color: #555; border: 1px dashed #e4e4e4; }
-
-    .schedule-time {
-      font-size: 14px;
-      color: var(--brand);
-      margin-top: 8px;
-      margin-bottom: 8px;
-      font-weight: 500;
-      line-height: 1.5;
-    }
-    .schedule-sub { 
-      font-size: 13px; 
-      color: #555; 
-      margin-bottom: 8px;
-      line-height: 1.6;
-      word-break: break-word;
-    }
-    .schedule-extra { 
-      font-size: 12px; 
-      color: #999;
-      line-height: 1.5;
-    }
-
     .venue-card {
       background: var(--card);
-      border-radius: 14px;
-      padding: 16px 18px;
-      margin-bottom: 18px;
-      border: 1px solid var(--border);
-      box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+      border-radius: 11px;
+      padding: 22px 10px 12px;
+      margin-bottom: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.58);
     }
-    .venue-name {
-      font-size: 17px;
-      font-weight: 700;
-      color: var(--text);
+    .venue-card:last-child {
+      margin-bottom: 0;
+    }
+    .board-title {
+      text-align: center;
       margin-bottom: 8px;
-      padding-bottom: 10px;
-      border-bottom: 1px solid var(--border);
+      color: var(--text);
+      line-height: 1.22;
     }
-    .venue-meta {
-      font-size: 13px;
-      color: var(--muted);
-      line-height: 1.6;
-      margin-bottom: 14px;
-    }
-    .venue-meta strong { color: var(--text); }
-    .floor-group {
-      margin-bottom: 14px;
-    }
-    .floor-group:last-child { margin-bottom: 0; }
-    .floor-title {
-      font-size: 14px;
+    .board-title-main {
+      display: block;
+      font-size: 25px;
+      letter-spacing: 0.8px;
       font-weight: 600;
-      color: var(--brand);
-      margin-bottom: 10px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
     }
-    .floor-title::before {
-      content: "";
-      width: 4px;
-      height: 14px;
-      background: var(--brand);
-      border-radius: 2px;
-    }
-    .day-block {
-      margin-bottom: 16px;
-    }
-    .day-block:last-child { margin-bottom: 0; }
-    .day-header {
-      font-size: 13px;
-      color: var(--muted);
-      margin-bottom: 10px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .day-header .date-tag {
-      background: var(--brand-soft);
-      color: var(--brand);
-      padding: 4px 10px;
-      border-radius: 8px;
+    .board-title-sub {
+      display: block;
+      margin-top: 2px;
+      font-size: 21px;
+      letter-spacing: 0.4px;
       font-weight: 500;
     }
-    .day-header .dot { width: 4px; height: 4px; border-radius: 50%; background: var(--muted); }
+    .board-subtitle {
+      text-align: center;
+      color: var(--brand);
+      font-size: 16px;
+      margin-bottom: 12px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      line-height: 1.3;
+    }
+    .schedule-table-wrap {
+      border: 1px solid #a6a6a6;
+      border-radius: 9px;
+      overflow: hidden;
+      background: #fff;
+    }
+    .schedule-table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+    }
+    .schedule-table thead th {
+      background: rgba(173, 48, 4, 0.78);
+      color: #fff;
+      font-size: 15px;
+      font-weight: 600;
+      padding: 12px 8px;
+      border-right: 1px solid rgba(255, 255, 255, 0.25);
+    }
+    .schedule-table thead th:last-child {
+      border-right: none;
+    }
+    .schedule-table th:first-child,
+    .schedule-table td:first-child {
+      width: 29%;
+      text-align: center;
+      border-right: 1px solid #a3a3a3;
+    }
+    .schedule-table td {
+      border-top: 1px solid #a3a3a3;
+      padding: 16px 8px;
+      color: #444;
+      font-size: 14px;
+      text-align: center;
+      line-height: 1.65;
+      vertical-align: middle;
+      word-break: break-word;
+    }
+    .schedule-table tbody tr:nth-child(even) td {
+      background: #edf2f5;
+    }
+    .hall-name {
+      font-weight: 600;
+      color: #505050;
+    }
+    .hall-time {
+      color: #444;
+      font-weight: 500;
+    }
+    .warm-tip {
+      margin-top: 14px;
+      padding: 10px 8px 2px;
+      border-top: 1px solid #efefef;
+      font-size: 12px;
+      color: #9b9b9b;
+      line-height: 1.7;
+    }
     .no-schedule-msg {
-      font-size: 13px;
-      color: #999;
-      padding: 12px 14px;
-      background: #f9f9f9;
-      border-radius: 10px;
-      border: 1px dashed #e8e8e8;
+      font-size: 14px;
+      color: #777;
+      padding: 20px 12px;
+      text-align: center;
+      border: 1px dashed #d2d2d2;
+      border-radius: 8px;
+      background: #fafafa;
+      margin-top: 8px;
     }
     .empty, .loading, .error {
       text-align: center;
       padding: 40px 20px;
       font-size: 14px;
-      color: #777;
+      color: #f5f5f5;
       line-height: 1.6;
     }
-    .error { color: #c0392b; }
+    .error { color: #ffd7d2; }
 
-    /* 移动端横屏适配 */
-    @media (orientation: landscape) and (max-height: 500px) {
-      body {
-        padding: 8px;
-      }
-      .venue-card,
-      .schedule-card {
-        padding: 12px;
-        margin-bottom: 10px;
-      }
-    }
-
-    /* 小屏幕优化 (iPhone SE等) */
     @media (max-width: 375px) {
-      body {
-        padding: 10px;
-        padding-left: max(10px, env(safe-area-inset-left));
-        padding-right: max(10px, env(safe-area-inset-right));
-      }
       .venue-card {
-        padding: 14px;
-        border-radius: 10px;
+        padding: 18px 8px 10px;
       }
-      .venue-name {
-        font-size: 16px;
+      .board-title {
+        margin-bottom: 7px;
       }
-      .venue-meta {
-        font-size: 12px;
+      .board-title-main {
+        font-size: 21px;
       }
-      .schedule-card {
-        padding: 12px 14px;
+      .board-title-sub {
+        font-size: 17px;
       }
-      .schedule-title {
-        font-size: 14px;
-      }
-      .schedule-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 8px;
-      }
-      .schedule-header > div:last-child {
-        margin-top: 0;
-      }
-      .schedule-time,
-      .schedule-sub {
-        font-size: 13px;
-      }
-    }
-
-    /* 超小屏幕优化 */
-    @media (max-width: 320px) {
-      body {
-        padding: 8px;
-        padding-left: max(8px, env(safe-area-inset-left));
-        padding-right: max(8px, env(safe-area-inset-right));
-      }
-      .venue-name {
+      .board-subtitle {
         font-size: 15px;
       }
-      .venue-meta {
-        font-size: 11px;
+      .schedule-table thead th {
+        font-size: 14px;
+        padding: 10px 6px;
       }
-      .schedule-title {
+      .schedule-table td {
         font-size: 13px;
-      }
-      .badge {
-        font-size: 10px;
-        padding: 3px 8px;
-      }
-      .schedule-time {
-        font-size: 12px;
-      }
-      .schedule-sub {
-        font-size: 12px;
+        padding: 12px 6px;
       }
     }
-
-    /* 大屏移动设备优化 */
-    @media (min-width: 414px) {
-      .venue-name {
-        font-size: 18px;
+    @media (max-width: 320px) {
+      .board-title-main {
+        font-size: 19px;
       }
-      .schedule-title {
+      .board-title-sub {
         font-size: 16px;
+      }
+      .schedule-table td,
+      .schedule-table thead th {
+        font-size: 12px;
       }
     }
   </style>
 </head>
 <body>
 <div class="page">
-  <header class="app-header">
-    <div class="header-main">
-      <div class="header-title" id="headerVenue">场馆排班</div>
-      <div class="header-meta">
-        <span class="header-status" id="headerDateRange">--</span>
-      </div>
-    </div>
-  </header>
+  <div class="page-shell">
   <div id="statusContainer"></div>
   <div id="venueContainer"></div>
+  </div>
 </div>
 
 <script>
@@ -405,6 +212,510 @@
   // const API_BASE = "https://www.historychannel.top/api_sched";
   const API_BASE = "";
   const API_PATH = "/api_sched/h5/venue/all_venues_schedules";
+  const USE_MOCK = false;
+  const MOCK_RESPONSE = {
+    success: true,
+    data: {
+      venues: [
+        {
+          id: 16,
+          venue_name: "test！！",
+          status: 1,
+          description: "这是一个测试场馆！！！",
+          volunteer_requirements: "<p>请添加志愿者要求说明</p><p>没有什么要求！！！</p>",
+          daily_schedules: [
+            {
+              date: "2026-04-20",
+              day_of_week: "周一",
+              floor_groups: [
+                {
+                  floor: 1,
+                  floor_text: "二楼",
+                  schedules: [
+                    {
+                      id: 3502,
+                      date: "2026-04-20",
+                      floor: 1,
+                      floor_text: "二楼",
+                      shift_type: 2,
+                      shift_type_text: "上午",
+                      position: 1,
+                      position_text: "基本陈列讲解岗",
+                      status: 2,
+                      status_text: "已分配",
+                      venue_id: 16,
+                      person_limit: 3,
+                      registered_count: 1,
+                      registration_status: 1,
+                      registration_status_text: "未开始",
+                      shift_category: 1,
+                      shift_category_text: "讲解岗",
+                      activity_name: null,
+                      remark: "请提前10分钟到场",
+                      content: "<p>这里是讲解岗排班详情</p>",
+                      start_time: "09:00",
+                      created_at: "2026-04-19 15:03:03",
+                      updated_at: "2026-04-19 17:24:38"
+                    },
+                    {
+                      id: 3503,
+                      date: "2026-04-20",
+                      floor: 1,
+                      floor_text: "二楼",
+                      shift_type: 3,
+                      shift_type_text: "下午",
+                      position: 1,
+                      position_text: "基本陈列讲解岗",
+                      status: 2,
+                      status_text: "已分配",
+                      venue_id: 16,
+                      person_limit: 3,
+                      registered_count: 2,
+                      registration_status: 1,
+                      registration_status_text: "未开始",
+                      shift_category: 1,
+                      shift_category_text: "讲解岗",
+                      activity_name: null,
+                      remark: "请提前10分钟到场",
+                      content: "<p>这里是讲解岗排班详情</p>",
+                      start_time: "14:00",
+                      created_at: "2026-04-19 15:03:03",
+                      updated_at: "2026-04-19 17:24:38"
+                    }
+                  ],
+                  schedule_count: 2
+                },
+                {
+                  floor: 2,
+                  floor_text: "三楼",
+                  schedules: [
+                    {
+                      id: 3504,
+                      date: "2026-04-20",
+                      floor: 2,
+                      floor_text: "三楼",
+                      shift_type: 2,
+                      shift_type_text: "上午",
+                      position: 2,
+                      position_text: "互动体验引导岗",
+                      status: 2,
+                      status_text: "已分配",
+                      venue_id: 16,
+                      person_limit: 2,
+                      registered_count: 1,
+                      registration_status: 1,
+                      registration_status_text: "未开始",
+                      shift_category: 2,
+                      shift_category_text: "引导岗",
+                      activity_name: null,
+                      remark: "请按时签到",
+                      content: "<p>这里是引导岗排班详情</p>",
+                      start_time: "10:30",
+                      created_at: "2026-04-19 15:03:03",
+                      updated_at: "2026-04-19 17:24:38"
+                    },
+                    {
+                      id: 3505,
+                      date: "2026-04-20",
+                      floor: 2,
+                      floor_text: "三楼",
+                      shift_type: 3,
+                      shift_type_text: "下午",
+                      position: 2,
+                      position_text: "互动体验引导岗",
+                      status: 2,
+                      status_text: "已分配",
+                      venue_id: 16,
+                      person_limit: 2,
+                      registered_count: 1,
+                      registration_status: 1,
+                      registration_status_text: "未开始",
+                      shift_category: 2,
+                      shift_category_text: "引导岗",
+                      activity_name: null,
+                      remark: "请按时签到",
+                      content: "<p>这里是引导岗排班详情</p>",
+                      start_time: "15:30",
+                      created_at: "2026-04-19 15:03:03",
+                      updated_at: "2026-04-19 17:24:38"
+                    }
+                  ],
+                  schedule_count: 2
+                }
+              ],
+              schedules: [
+                {
+                  id: 3502,
+                  date: "2026-04-20",
+                  floor: 1,
+                  floor_text: "二楼",
+                  shift_type: 2,
+                  shift_type_text: "上午",
+                  position: 1,
+                  position_text: "基本陈列讲解岗",
+                  status: 2,
+                  status_text: "已分配",
+                  venue_id: 16,
+                  person_limit: 3,
+                  registered_count: 1,
+                  registration_status: 1,
+                  registration_status_text: "未开始",
+                  shift_category: 1,
+                  shift_category_text: "讲解岗",
+                  activity_name: null,
+                  remark: "请提前10分钟到场",
+                  content: "<p>这里是讲解岗排班详情</p>",
+                  start_time: "09:00",
+                  created_at: "2026-04-19 15:03:03",
+                  updated_at: "2026-04-19 17:24:38"
+                },
+                {
+                  id: 3503,
+                  date: "2026-04-20",
+                  floor: 1,
+                  floor_text: "二楼",
+                  shift_type: 3,
+                  shift_type_text: "下午",
+                  position: 1,
+                  position_text: "基本陈列讲解岗",
+                  status: 2,
+                  status_text: "已分配",
+                  venue_id: 16,
+                  person_limit: 3,
+                  registered_count: 2,
+                  registration_status: 1,
+                  registration_status_text: "未开始",
+                  shift_category: 1,
+                  shift_category_text: "讲解岗",
+                  activity_name: null,
+                  remark: "请提前10分钟到场",
+                  content: "<p>这里是讲解岗排班详情</p>",
+                  start_time: "14:00",
+                  created_at: "2026-04-19 15:03:03",
+                  updated_at: "2026-04-19 17:24:38"
+                },
+                {
+                  id: 3504,
+                  date: "2026-04-20",
+                  floor: 2,
+                  floor_text: "三楼",
+                  shift_type: 2,
+                  shift_type_text: "上午",
+                  position: 2,
+                  position_text: "互动体验引导岗",
+                  status: 2,
+                  status_text: "已分配",
+                  venue_id: 16,
+                  person_limit: 2,
+                  registered_count: 1,
+                  registration_status: 1,
+                  registration_status_text: "未开始",
+                  shift_category: 2,
+                  shift_category_text: "引导岗",
+                  activity_name: null,
+                  remark: "请按时签到",
+                  content: "<p>这里是引导岗排班详情</p>",
+                  start_time: "10:30",
+                  created_at: "2026-04-19 15:03:03",
+                  updated_at: "2026-04-19 17:24:38"
+                },
+                {
+                  id: 3505,
+                  date: "2026-04-20",
+                  floor: 2,
+                  floor_text: "三楼",
+                  shift_type: 3,
+                  shift_type_text: "下午",
+                  position: 2,
+                  position_text: "互动体验引导岗",
+                  status: 2,
+                  status_text: "已分配",
+                  venue_id: 16,
+                  person_limit: 2,
+                  registered_count: 1,
+                  registration_status: 1,
+                  registration_status_text: "未开始",
+                  shift_category: 2,
+                  shift_category_text: "引导岗",
+                  activity_name: null,
+                  remark: "请按时签到",
+                  content: "<p>这里是引导岗排班详情</p>",
+                  start_time: "15:30",
+                  created_at: "2026-04-19 15:03:03",
+                  updated_at: "2026-04-19 17:24:38"
+                }
+              ],
+              schedule_count: 4,
+              has_schedules: true,
+              is_today: true,
+              no_schedule_message: null
+            }
+          ],
+          total_count: 4
+        },
+        {
+          id: 18,
+          venue_name: "东馆特展",
+          status: 1,
+          description: "东馆特展讲解与引导排班",
+          volunteer_requirements: "<p>普通话标准，熟悉展陈内容</p>",
+          daily_schedules: [
+            {
+              date: "2026-04-20",
+              day_of_week: "周一",
+              floor_groups: [
+                {
+                  floor: 1,
+                  floor_text: "青铜馆",
+                  schedules: [
+                    {
+                      id: 3601,
+                      date: "2026-04-20",
+                      floor: 1,
+                      floor_text: "青铜馆",
+                      shift_type: 2,
+                      shift_type_text: "上午",
+                      position: 1,
+                      position_text: "展厅讲解岗",
+                      status: 2,
+                      status_text: "已分配",
+                      venue_id: 18,
+                      person_limit: 4,
+                      registered_count: 2,
+                      registration_status: 1,
+                      registration_status_text: "未开始",
+                      shift_category: 1,
+                      shift_category_text: "讲解岗",
+                      activity_name: null,
+                      remark: "佩戴讲解证",
+                      content: "<p>讲解时长约30分钟</p>",
+                      start_time: "10:30",
+                      created_at: "2026-04-19 13:03:03",
+                      updated_at: "2026-04-19 18:24:38"
+                    },
+                    {
+                      id: 3602,
+                      date: "2026-04-20",
+                      floor: 1,
+                      floor_text: "青铜馆",
+                      shift_type: 2,
+                      shift_type_text: "上午",
+                      position: 1,
+                      position_text: "展厅讲解岗",
+                      status: 2,
+                      status_text: "已分配",
+                      venue_id: 18,
+                      person_limit: 4,
+                      registered_count: 2,
+                      registration_status: 1,
+                      registration_status_text: "未开始",
+                      shift_category: 1,
+                      shift_category_text: "讲解岗",
+                      activity_name: null,
+                      remark: "佩戴讲解证",
+                      content: "<p>讲解时长约30分钟</p>",
+                      start_time: "12:30",
+                      created_at: "2026-04-19 13:03:03",
+                      updated_at: "2026-04-19 18:24:38"
+                    }
+                  ],
+                  schedule_count: 2
+                },
+                {
+                  floor: 2,
+                  floor_text: "陶瓷馆",
+                  schedules: [
+                    {
+                      id: 3603,
+                      date: "2026-04-20",
+                      floor: 2,
+                      floor_text: "陶瓷馆",
+                      shift_type: 3,
+                      shift_type_text: "下午",
+                      position: 1,
+                      position_text: "展厅讲解岗",
+                      status: 2,
+                      status_text: "已分配",
+                      venue_id: 18,
+                      person_limit: 4,
+                      registered_count: 1,
+                      registration_status: 1,
+                      registration_status_text: "未开始",
+                      shift_category: 1,
+                      shift_category_text: "讲解岗",
+                      activity_name: null,
+                      remark: "佩戴讲解证",
+                      content: "<p>讲解时长约30分钟</p>",
+                      start_time: "13:30",
+                      created_at: "2026-04-19 13:03:03",
+                      updated_at: "2026-04-19 18:24:38"
+                    },
+                    {
+                      id: 3604,
+                      date: "2026-04-20",
+                      floor: 2,
+                      floor_text: "陶瓷馆",
+                      shift_type: 3,
+                      shift_type_text: "下午",
+                      position: 1,
+                      position_text: "展厅讲解岗",
+                      status: 2,
+                      status_text: "已分配",
+                      venue_id: 18,
+                      person_limit: 4,
+                      registered_count: 2,
+                      registration_status: 1,
+                      registration_status_text: "未开始",
+                      shift_category: 1,
+                      shift_category_text: "讲解岗",
+                      activity_name: null,
+                      remark: "佩戴讲解证",
+                      content: "<p>讲解时长约30分钟</p>",
+                      start_time: "15:00",
+                      created_at: "2026-04-19 13:03:03",
+                      updated_at: "2026-04-19 18:24:38"
+                    }
+                  ],
+                  schedule_count: 2
+                }
+              ],
+              schedules: [
+                {
+                  id: 3601,
+                  date: "2026-04-20",
+                  floor: 1,
+                  floor_text: "青铜馆",
+                  shift_type: 2,
+                  shift_type_text: "上午",
+                  position: 1,
+                  position_text: "展厅讲解岗",
+                  status: 2,
+                  status_text: "已分配",
+                  venue_id: 18,
+                  person_limit: 4,
+                  registered_count: 2,
+                  registration_status: 1,
+                  registration_status_text: "未开始",
+                  shift_category: 1,
+                  shift_category_text: "讲解岗",
+                  activity_name: null,
+                  remark: "佩戴讲解证",
+                  content: "<p>讲解时长约30分钟</p>",
+                  start_time: "10:30",
+                  created_at: "2026-04-19 13:03:03",
+                  updated_at: "2026-04-19 18:24:38"
+                },
+                {
+                  id: 3602,
+                  date: "2026-04-20",
+                  floor: 1,
+                  floor_text: "青铜馆",
+                  shift_type: 2,
+                  shift_type_text: "上午",
+                  position: 1,
+                  position_text: "展厅讲解岗",
+                  status: 2,
+                  status_text: "已分配",
+                  venue_id: 18,
+                  person_limit: 4,
+                  registered_count: 2,
+                  registration_status: 1,
+                  registration_status_text: "未开始",
+                  shift_category: 1,
+                  shift_category_text: "讲解岗",
+                  activity_name: null,
+                  remark: "佩戴讲解证",
+                  content: "<p>讲解时长约30分钟</p>",
+                  start_time: "12:30",
+                  created_at: "2026-04-19 13:03:03",
+                  updated_at: "2026-04-19 18:24:38"
+                },
+                {
+                  id: 3603,
+                  date: "2026-04-20",
+                  floor: 2,
+                  floor_text: "陶瓷馆",
+                  shift_type: 3,
+                  shift_type_text: "下午",
+                  position: 1,
+                  position_text: "展厅讲解岗",
+                  status: 2,
+                  status_text: "已分配",
+                  venue_id: 18,
+                  person_limit: 4,
+                  registered_count: 1,
+                  registration_status: 1,
+                  registration_status_text: "未开始",
+                  shift_category: 1,
+                  shift_category_text: "讲解岗",
+                  activity_name: null,
+                  remark: "佩戴讲解证",
+                  content: "<p>讲解时长约30分钟</p>",
+                  start_time: "13:30",
+                  created_at: "2026-04-19 13:03:03",
+                  updated_at: "2026-04-19 18:24:38"
+                },
+                {
+                  id: 3604,
+                  date: "2026-04-20",
+                  floor: 2,
+                  floor_text: "陶瓷馆",
+                  shift_type: 3,
+                  shift_type_text: "下午",
+                  position: 1,
+                  position_text: "展厅讲解岗",
+                  status: 2,
+                  status_text: "已分配",
+                  venue_id: 18,
+                  person_limit: 4,
+                  registered_count: 2,
+                  registration_status: 1,
+                  registration_status_text: "未开始",
+                  shift_category: 1,
+                  shift_category_text: "讲解岗",
+                  activity_name: null,
+                  remark: "佩戴讲解证",
+                  content: "<p>讲解时长约30分钟</p>",
+                  start_time: "15:00",
+                  created_at: "2026-04-19 13:03:03",
+                  updated_at: "2026-04-19 18:24:38"
+                }
+              ],
+              schedule_count: 4,
+              has_schedules: true,
+              is_today: true,
+              no_schedule_message: null
+            }
+          ],
+          total_count: 4
+        },
+        {
+          id: 20,
+          venue_name: "西馆临展",
+          status: 1,
+          description: "西馆当日无可用导览场次",
+          volunteer_requirements: "<p>按馆方通知执行</p>",
+          daily_schedules: [
+            {
+              date: "2026-04-20",
+              day_of_week: "周一",
+              floor_groups: [],
+              schedules: [],
+              schedule_count: 0,
+              has_schedules: false,
+              is_today: true,
+              no_schedule_message: "今日该场馆暂无志愿者导览安排"
+            }
+          ],
+          total_count: 0
+        }
+      ],
+      start_date: "2026-04-20",
+      end_date: "2026-04-20"
+    },
+    code: 0,
+    error: ""
+  };
 
   function getToday() {
     const d = new Date();
@@ -420,6 +731,13 @@
     const parts = String(s).split(":");
     if (parts.length >= 2) return `${parts[0]}:${parts[1]}`;
     return s;
+  }
+
+  function formatDateCn(dateStr) {
+    if (!dateStr) return "--";
+    const [y, m, d] = String(dateStr).split("-");
+    if (!y || !m || !d) return dateStr;
+    return `${y}年${m}月${d}日`;
   }
 
   function renderVenueSchedules(venue) {
@@ -494,27 +812,25 @@
 
     const statusContainer = document.getElementById("statusContainer");
     const venueContainer = document.getElementById("venueContainer");
-    const headerRange = document.getElementById("headerDateRange");
-
-    if (headerRange) {
-      headerRange.textContent = today.replace(/-/g, ".");
-    }
-
     statusContainer.innerHTML = `<div class="loading">加载中...</div>`;
     venueContainer.innerHTML = "";
 
     try {
-      const res = await fetch(API_BASE + API_PATH, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(buildRequestPayload(start_date, end_date))
-      });
+      let json;
+      if (USE_MOCK) {
+        json = MOCK_RESPONSE;
+      } else {
+        const res = await fetch(API_BASE + API_PATH, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(buildRequestPayload(start_date, end_date))
+        });
 
-      if (!res.ok) {
-        throw new Error(`HTTP ${res.status}`);
+        if (!res.ok) {
+          throw new Error(`HTTP ${res.status}`);
+        }
+        json = await res.json();
       }
-
-      const json = await res.json();
       const venues = extractVenues(json);
 
       statusContainer.innerHTML = "";
@@ -526,56 +842,52 @@
 
       venueContainer.innerHTML = venues.map((venue) => {
         const blocks = renderVenueSchedules(venue);
-        const dayHtml = blocks.map((block) => {
-          if (block.message) {
-            return `
-              <div class="day-block">
-                <div class="day-header">
-                  <span class="date-tag">${block.date.replace(/-/g, ".")} ${block.day_of_week}</span>
-                  <span class="dot"></span>
-                </div>
-                <div class="no-schedule-msg">${block.message}</div>
-              </div>`;
-          }
-          const floorHtml = (block.floorGroups || [])
-            .map(
-              (fg) => `
-              <div class="floor-group">
-                <div class="floor-title">${fg.floor}</div>
-                <div class="floor-schedules">
-                  ${(fg.schedules || [])
-                    .map(
-                      (s) => `
-                    <div class="schedule-card">
-                      <div class="schedule-header">
-                        <div class="schedule-title">${s.shift_type_text || ""} · ${s.position_text || ""}</div>
-                      </div>
-                      <div class="schedule-time">${formatTime(s.start_time)}</div>
-                    </div>`
-                    )
-                    .join("")}
-                </div>
-              </div>`
-            )
-            .join("");
-          return `
-            <div class="day-block">
-              <div class="day-header">
-                <span class="date-tag">${block.date.replace(/-/g, ".")} ${block.day_of_week}</span>
-                <span class="dot"></span>
-              </div>
-              ${floorHtml}
-            </div>`;
-        }).join("");
+        const normalBlock = blocks.find((b) => !b.message) || blocks[0] || {};
+        const dateText = formatDateCn(normalBlock.date || today);
+        const hallRows = ((normalBlock.floorGroups || []).map((fg) => {
+          const times = (fg.schedules || [])
+            .map((s) => formatTime(s.start_time))
+            .filter((t) => t && t !== "--");
+          const uniqueTimes = [...new Set(times)];
+          return {
+            hall: fg.floor || "未命名展厅",
+            times: uniqueTimes.length ? uniqueTimes.join("、 ") : "--"
+          };
+        }));
 
-        let meta = "";
-        if (venue.description) meta += `<div class="venue-meta"><strong>简介：</strong>${venue.description}</div>`;
-        if (venue.volunteer_requirements) meta += `<div class="venue-meta"><strong>志愿者要求：</strong>${venue.volunteer_requirements}</div>`;
+        const rowsHtml = hallRows.length
+          ? hallRows
+            .map((row) => `
+              <tr>
+                <td class="hall-name">${row.hall}</td>
+                <td class="hall-time">${row.times}</td>
+              </tr>
+            `).join("")
+          : "";
+
         return `
           <div class="venue-card">
-            <div class="venue-name">${venue.venue_name || "未命名场馆"}</div>
-            ${meta}
-            <div class="venue-days">${dayHtml}</div>
+            <div class="board-title">
+              <span class="board-title-main">上海历史博物馆</span>
+              <span class="board-title-sub">志愿者展厅导览时间</span>
+            </div>
+            <div class="board-subtitle">${dateText}　${venue.venue_name || "场馆"}</div>
+            ${hallRows.length ? `
+              <div class="schedule-table-wrap">
+                <table class="schedule-table">
+                  <thead>
+                    <tr>
+                      <th>展厅</th>
+                      <th>展览时间</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    ${rowsHtml}
+                  </tbody>
+                </table>
+              </div>
+            ` : `<div class="no-schedule-msg">${normalBlock.message || "今日该场馆暂无导览排班"}</div>`}
+            <div class="warm-tip">温馨提示：以上为展览开放时间，如遇不可抗因素取消敬请谅解。</div>
           </div>`;
       }).join("");
     } catch (error) {
