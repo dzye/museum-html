@@ -740,6 +740,28 @@
     return `${y}年${m}月${d}日`;
   }
 
+  function hasValidFloorLabel(floor, floorText) {
+    const text = String(floorText || "").trim();
+    return floor !== null
+      && floor !== undefined
+      && floor !== 0
+      && text
+      && text !== "未指定"
+      && text !== "未知";
+  }
+
+  function getHallDisplayName(group, venueName) {
+    if (hasValidFloorLabel(group.floor, group.floorText)) {
+      return group.floorText;
+    }
+
+    const activityName = (group.schedules || [])
+      .map((schedule) => String(schedule.activity_name || "").trim())
+      .find(Boolean);
+
+    return activityName || venueName || "未命名展厅";
+  }
+
   function renderVenueSchedules(venue) {
     return (venue.daily_schedules || []).map((day) => {
       if (day.is_today && !day.has_schedules) {
@@ -751,11 +773,16 @@
       }
       const fgs = day.floor_groups && day.floor_groups.length
         ? day.floor_groups.map((fg) => ({
-            floor: fg.floor_text,
+            floor: fg.floor,
+            floorText: fg.floor_text,
             schedules: fg.schedules || []
           }))
         : (day.schedules && day.schedules.length)
-          ? [{ floor: "排班", schedules: day.schedules }]
+          ? [{
+              floor: null,
+              floorText: "",
+              schedules: day.schedules
+            }]
           : [];
       return {
         date: day.date,
@@ -850,7 +877,7 @@
             .filter((t) => t && t !== "--");
           const uniqueTimes = [...new Set(times)];
           return {
-            hall: fg.floor || "未命名展厅",
+            hall: getHallDisplayName(fg, venue.venue_name),
             times: uniqueTimes.length ? uniqueTimes.join("、 ") : "--"
           };
         }));
@@ -877,7 +904,7 @@
                 <table class="schedule-table">
                   <thead>
                     <tr>
-                      <th>展厅</th>
+                      <th>楼层/特展</th>
                       <th>志愿者导览时间</th>
                     </tr>
                   </thead>
@@ -887,7 +914,7 @@
                 </table>
               </div>
             ` : `<div class="no-schedule-msg">${normalBlock.message || "今日该场馆暂无导览排班"}</div>`}
-            <div class="warm-tip">温馨提示：以上为展览开放时间，如遇不可抗因素取消敬请谅解。</div>
+            <div class="warm-tip">温馨提示：以上为展览开始时间，如遇不可抗因素取消敬请谅解。</div>
           </div>`;
       }).join("");
     } catch (error) {
